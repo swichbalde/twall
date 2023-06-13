@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS user_info
+(
+    id          BIGSERIAL     NOT NULL PRIMARY KEY,
+    username    VARCHAR(56)   NOT NULL UNIQUE,
+    private_key VARCHAR(2056) NOT NULL UNIQUE
+);

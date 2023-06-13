@@ -1,7 +1,9 @@
 package com.example
 
+import com.example.plugins.DatabaseFactoryJAsync
+import com.example.plugins.configureRouting
+import com.example.plugins.configureSerialization
 import io.ktor.server.application.*
-import com.example.plugins.*
 
 fun main(args: Array<String>): Unit =
     io.ktor.server.netty.EngineMain.main(args)
@@ -10,4 +12,5 @@ fun main(args: Array<String>): Unit =
 fun Application.module() {
     configureSerialization()
     configureRouting()
+    DatabaseFactoryJAsync.init(environment.config.config("ktor.db"))
 }
